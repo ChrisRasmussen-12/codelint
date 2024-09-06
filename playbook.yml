@@ -1,7 +1,8 @@
 
   # This comment is indented at the wrong level
 - name: DEPLOYING SNMP CONFIGURATIONS ON IOS AND JUNOS BASED ON THE NETWORK OS TYPE FROM A DICTIONARY
-  hosts: iosxe,vmx
+  #  hosts: iosxe,vmx
+    hosts: iosxe
 
   vars:
     ansible_connection: network_cli
@@ -10,10 +11,6 @@
         snmp-server community ntc-team RO
         snmp-server location FL_HQ
         snmp-server contact JAMES_CHARLES
-      ios: |
-        set snmp location FL_HQ
-        set snmp contact JAMES_CHARLES
-        set snmp community public authorization read-only
 
   tasks:
     - name: Task 1 - ensure snmp commands exist on ios and vmx devices
